@@ -1,0 +1,21 @@
+{
+  "name": "recliner",
+  "version": "1.0.0",
+  "description": "Authentication middleware for CouchDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "keywords": [
+    "auth",
+    "couchdb"
+  ],
+  "author": "Tom Vincent <npm@tlvince.com> (http://tlvince.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.8.3",
+    "cors": "^2.4.2",
+    "express": "^4.9.4",
+    "request": "^2.44.0"
+  }
+}
