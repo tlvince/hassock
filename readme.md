@@ -1,11 +1,13 @@
 # hassock
 
-> Authentication middleware for CouchDB
+> Authentication proxy for CouchDB
 
-Sits in between a client and CouchDB to manage (regular) user account creation.
-Allows you to keep your CouchDB admin account credentials out of your client
-code, whilst making use of Couch's user account functionality. Works best with
-sign up forms.
+Passes through any requests as-is to CouchDB, optionally setting an HTTP auth
+header if `DB_USERNAME` and `DB_PASSWORD` are set.
+
+Intended to be used to manage (regular) CouchDB user accounts. Allows you to
+keep your CouchDB admin account credentials out of your client code, whilst
+making use of CouchDB's user account functionality.
 
 ## Usage
 
@@ -15,42 +17,24 @@ Server:
 DB_URL=https://my.couchdb.example.com \
 DB_USERNAME=user \
 DB_PASSWORD=pass \
-USER_ROLES=posts,comments \
-USER_GROUP=group \
 npm start
 ```
 
-Client:
+Request:
 
 ```shell
-curl -X PUT localhost:3000/users/alice \
+curl -X PUT localhost:3000/_users/org.couchdb.user:alice \
   -H "Content-Type application/json" \
-  -d '{"username": "alice", "password": "alice", "group": "author"}'
+  -d '{"_id": "org.couchdb.user:alice", "name": "alice", "password": "alice", "roles": [], "type": "user"}'
 ```
 
-CouchDB:
-
-```shell
-curl localhost:5984/_users/org.couchdb.user%3Aalice
-```
+Response:
 
 ```json
-{
-  "_id": "org.couchdb.user:alice",
-  "_rev": "1-68ab0a84d7f8ef771a0e1d4ee49e8f05",
-  "password_scheme": "pbkdf2",
-  "iterations": 10,
-  "name": "alice",
-  "roles": [
-    "posts",
-    "comments",
-    "group/author"
-  ],
-  "type": "user",
-  "derived_key": "10f4676307c8c1777ebdaedcc0797eae8ba7a464",
-  "salt": "99c4d3304c500c73378c56dca94d605c"
-}
+{"ok":true,"id":"org.couchdb.user:alice","rev":"1-39fb61aabac5418950ce6c0b3bbc5c63"}
 ```
+
+Note, no authentication was set by the client.
 
 ## Environment
 
@@ -61,12 +45,10 @@ Variable      | Use
 `DB_URL`      | CouchDB URL (required)
 `DB_USERNAME` | CouchDB HTTP basic auth username
 `DB_PASSWORD` | CouchDB HTTP basic auth password
-`USER_ROLES`  | Comma separated list of user roles
-`USER_GROUP`  | Property name of the user's group, formatted as a role
 
 ## Author
 
-© 2014 Tom Vincent <http://tlvince.com>
+© 2015 Tom Vincent <http://tlvince.com>
 
 ## License
 

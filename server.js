@@ -1,9 +1,9 @@
 'use strict'
 
+var cors = require('cors')
 var express = require('express')
 var request = require('request')
 var bodyParser = require('body-parser')
-var cors = require('cors')
 
 if (!process.env.DB_URL) {
   throw new Error('Required environment variable DB_URL is unset')
@@ -19,31 +19,15 @@ var db = {
   password: process.env.DB_PASSWORD
 }
 
-var user = {
-  roles: process.env.USER_ROLES.split(',') || [],
-  group: process.env.USER_GROUP || ''
-}
-
-app.put('/users/:id', function (req, res) {
-  var url = [
-    db.url,
-    '/_users/org.couchdb.user:',
-    req.params.id
-  ].join('')
-
-  var User = {
-    name: req.body.username,
-    password: req.body.password,
-    roles: [].concat(user.roles),
-    type: 'user'
-  }
-
-  if (req.body[user.group]) {
-    User.roles.push(user.group + '/' + req.body[user.group])
-  }
-
+app.all('*', function (req, res) {
   var opts = {
-    body: JSON.stringify(User)
+    uri: db.url + req.url,
+    method: req.method
+  }
+
+  if (req.body && Object.keys(req.body).length) {
+    opts.json = true
+    opts.body = req.body
   }
 
   if (db.username && db.password) {
@@ -53,7 +37,7 @@ app.put('/users/:id', function (req, res) {
     }
   }
 
-  req.pipe(request.put(url, opts)).pipe(res)
+  req.pipe(request(opts)).pipe(res)
 })
 
 app.listen(process.env.PORT || 3000)
