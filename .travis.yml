@@ -1,8 +1,3 @@
 language: node_js
 node_js:
-  - '0.10'
-before_script:
-  - npm install --global eslint
-notifications:
-  flowdock:
-    secure: gt/3KSr6tEcOLOB1Wyz04rxMUvrojKphZ6TkD0KrC02Q4mIfOApTSwWMmZoDsKxZTqgBziVeXzfLqpoR4XgwdTlfjig9F/EKYHXaVq4pZ7jTSDjsO4ku6bxvr5S0TEtRsI702n8g71nfChUq4umb8YkXckaT5ZQIWCVxnBUA6Rs=
+  - '0.12'
