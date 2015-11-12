@@ -1,6 +1,11 @@
 # hassock
 
+[![Build Status][travis-image]][travis-url]
+
 > Authentication proxy for CouchDB
+
+[travis-url]: https://travis-ci.org/tlvince/hassock
+[travis-image]: https://img.shields.io/travis/tlvince/hassock.svg
 
 Passes through any requests as-is to CouchDB, optionally setting an HTTP auth
 header if `DB_USERNAME` and `DB_PASSWORD` are set.
