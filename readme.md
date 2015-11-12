@@ -7,8 +7,8 @@
 [travis-url]: https://travis-ci.org/tlvince/hassock
 [travis-image]: https://img.shields.io/travis/tlvince/hassock.svg
 
-Passes through any requests as-is to CouchDB, optionally setting an HTTP auth
-header if `DB_USERNAME` and `DB_PASSWORD` are set.
+Passes through any requests to `/_users/` as-is to CouchDB, optionally setting
+an HTTP auth header if `DB_USERNAME` and `DB_PASSWORD` are set.
 
 Intended to be used to manage (regular) CouchDB user accounts. Allows you to
 keep your CouchDB admin account credentials out of your client code, whilst

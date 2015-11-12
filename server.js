@@ -20,7 +20,7 @@ var db = {
   password: process.env.DB_PASSWORD
 }
 
-app.all('*', function (req, res) {
+app.all('/_users/*', function (req, res) {
   var opts = {
     uri: db.url + req.url,
     method: req.method
