@@ -20,8 +20,8 @@
     "request": "2.44.0"
   },
   "devDependencies": {
-    "semantic-release": "^4.3.5",
-    "standard": "^5.3.1"
+    "semantic-release": "4.3.5",
+    "standard": "5.3.1"
   },
   "repository": {
     "type": "git",
