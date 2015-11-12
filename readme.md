@@ -1,4 +1,4 @@
-# recliner
+# hassock
 
 > Authentication middleware for CouchDB
 
@@ -54,7 +54,7 @@ curl localhost:5984/_users/org.couchdb.user%3Aalice
 
 ## Environment
 
-`recliner` respects the following environment variables:
+`hassock` respects the following environment variables:
 
 Variable      | Use
 --------      | ---

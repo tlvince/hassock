@@ -1,5 +1,5 @@
 {
-  "name": "recliner",
+  "name": "hassock",
   "version": "1.0.0",
   "description": "Authentication middleware for CouchDB",
   "main": "server.js",
@@ -24,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tlvince/recliner.git"
+    "url": "https://github.com/tlvince/hassock.git"
   },
   "bugs": {
-    "url": "https://github.com/tlvince/recliner/issues"
+    "url": "https://github.com/tlvince/hassock/issues"
   },
-  "homepage": "https://github.com/tlvince/recliner"
+  "homepage": "https://github.com/tlvince/hassock"
 }
