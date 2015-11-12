@@ -14,10 +14,10 @@
   "author": "Tom Vincent <npm@tlvince.com> (http://tlvince.com/)",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.8.3",
-    "cors": "^2.4.2",
-    "express": "^4.9.4",
-    "request": "^2.44.0"
+    "body-parser": "1.8.3",
+    "cors": "2.4.2",
+    "express": "4.9.4",
+    "request": "2.44.0"
   },
   "devDependencies": {},
   "repository": {
