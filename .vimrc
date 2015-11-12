@@ -1,2 +1,2 @@
-let syntastic_javascript_checkers = ['eslint']
-autocmd BufEnter .eslintrc setlocal filetype=yaml
+let $PATH = './node_modules/.bin:' . $PATH
+let g:neomake_javascript_enabled_makers = ['standard']
