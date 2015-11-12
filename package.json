@@ -4,7 +4,7 @@
   "description": "Authentication middleware for CouchDB",
   "main": "server.js",
   "scripts": {
-    "test": "eslint .",
+    "test": "standard",
     "start": "node server.js"
   },
   "keywords": [
@@ -19,7 +19,9 @@
     "express": "4.9.4",
     "request": "2.44.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^5.3.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tlvince/recliner.git"
