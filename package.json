@@ -1,11 +1,11 @@
 {
   "name": "hassock",
-  "version": "1.0.0",
   "description": "Authentication middleware for CouchDB",
   "main": "server.js",
   "scripts": {
     "test": "standard",
-    "start": "node server.js"
+    "start": "node server.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "auth",
@@ -20,6 +20,7 @@
     "request": "2.44.0"
   },
   "devDependencies": {
+    "semantic-release": "^4.3.5",
     "standard": "^5.3.1"
   },
   "repository": {
