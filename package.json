@@ -18,7 +18,7 @@
     "body-parser": "1.15.0",
     "cors": "2.4.2",
     "express": "4.9.4",
-    "request": "2.44.0"
+    "request": "2.72.0"
   },
   "devDependencies": {
     "semantic-release": "4.3.5",
